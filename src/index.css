@@ -22,3 +22,16 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Layout helpers */
+.page-container { @apply mx-auto max-w-5xl px-4; }
+.section { @apply page-container py-12; }
+
+/* UI helpers */
+.btn { @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition; }
+.btn-primary { @apply btn bg-brand text-white hover:bg-brand-dark; }
+.btn-outline { @apply btn border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10; }
+.link { @apply underline underline-offset-4 decoration-2 decoration-brand hover:opacity-90; }
+.heading-2 { @apply text-4xl font-extrabold tracking-tight md:text-5xl; }
+.subtle { @apply text-gray-600 dark:text-gray-300; }
+.card { @apply rounded-lg border border-black/10 dark:border-white/10 p-4 transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand; }

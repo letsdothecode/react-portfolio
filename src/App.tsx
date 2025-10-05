@@ -34,11 +34,7 @@ function ThemeToggle() {
   }, [isDark])
 
   return (
-    <button
-      onClick={() => setIsDark((v) => !v)}
-      className="rounded-md border px-3 py-1 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10"
-      aria-label="Toggle theme"
-    >
+    <button onClick={() => setIsDark((v) => !v)} className="btn-outline" aria-label="Toggle theme">
       {isDark ? 'Light' : 'Dark'} Mode
     </button>
   )
@@ -47,7 +43,7 @@ function ThemeToggle() {
 function Header({ active }: { active: string }) {
   return (
     <header className="sticky top-0 z-20 backdrop-blur border-b border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/30">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+      <div className="page-container flex items-center justify-between py-3">
         <h1 className="text-xl font-bold text-brand">Ananya Goyal</h1>
         <nav className="hidden gap-6 md:flex" aria-label="Primary">
           {navItems.map((item) => (
@@ -63,12 +59,7 @@ function Header({ active }: { active: string }) {
         </nav>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <a
-            className="rounded-md bg-brand px-3 py-1 text-white text-sm font-semibold hover:bg-brand-dark"
-            href="#contact"
-          >
-            Contact
-          </a>
+          <a className="btn-primary" href="#contact">Contact</a>
         </div>
       </div>
     </header>
@@ -77,23 +68,23 @@ function Header({ active }: { active: string }) {
 
 function Hero() {
   return (
-    <section id="home" className="mx-auto max-w-5xl px-4 py-16 md:py-24" aria-labelledby="home-heading">
+    <section id="home" className="section md:py-24" aria-labelledby="home-heading">
       <div className="grid items-center gap-8 md:grid-cols-2">
         <div>
-          <h2 id="home-heading" className="text-4xl font-extrabold tracking-tight md:text-5xl">
-            Ananya Goyal
-          </h2>
-          <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">Computer Science Student</p>
+          <h2 id="home-heading" className="heading-2">Ananya Goyal</h2>
+          <p className="mt-2 text-lg subtle">Computer Science Student</p>
           <p className="mt-4 text-sm font-medium">Email: ananya@gmail.com • Course: BCA Hons.</p>
-          <div className="mt-6 flex gap-3 items-center">
-            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer" className="rounded-md border px-3 py-1 text-sm hover:bg-black/5 dark:hover:bg-white/10 flex items-center gap-2">
+          <div className="mt-6 flex flex-wrap gap-3 items-center">
+            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer" className="btn-outline gap-2">
               <img src="/linkedin.png" alt="LinkedIn" className="h-4 w-4 rounded-full" />
               LinkedIn
             </a>
-            <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer" className="rounded-md border px-3 py-1 text-sm hover:bg-black/5 dark:hover:bg-white/10 flex items-center gap-2">
+            <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer" className="btn-outline gap-2">
               <img src="/stackoverflow.png" alt="StackOverflow" className="h-4 w-4 rounded-full" />
               StackOverflow
             </a>
+            <a href="#projects" className="btn-primary">View Projects</a>
+            <a href="/Ananya_Goyal_Resume.pdf" className="btn-outline" target="_blank" rel="noreferrer">Download Resume</a>
           </div>
         </div>
         <div className="flex justify-center">
@@ -108,7 +99,7 @@ function Hero() {
 
 function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="mx-auto max-w-5xl px-4 py-12" aria-labelledby={`${id}-heading`}>
+    <section id={id} className="section" aria-labelledby={`${id}-heading`}>
       <h3 id={`${id}-heading`} className="text-2xl font-bold text-brand">{title}</h3>
       <div className="mt-4 text-sm leading-6 text-gray-700 dark:text-gray-200">{children}</div>
     </section>
@@ -129,13 +120,13 @@ function Projects() {
             href={p.link || p.source || '#'}
             target={p.link || p.source ? '_blank' : undefined}
             rel={p.link || p.source ? 'noreferrer' : undefined}
-            className="group rounded-lg border border-black/10 dark:border-white/10 p-4 transition hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand"
+            className="card"
           >
             <div className="flex items-start justify-between">
               <h4 className="text-lg font-semibold">{p.title}</h4>
               <span className="text-xs text-brand">View</span>
             </div>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{p.description}</p>
+            <p className="mt-2 text-sm subtle">{p.description}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {p.tags.map((t) => (
                 <span key={t} className="rounded-full bg-brand/10 px-2 py-0.5 text-[10px] font-semibold text-brand">
@@ -190,7 +181,7 @@ function Contact() {
 
   return (
     <Section id="contact" title="Contact">
-      <form onSubmit={onSubmit} className="grid gap-3 max-w-lg" aria-label="Contact form">
+      <form onSubmit={onSubmit} className="grid gap-3 max-w-lg">
         <label className="sr-only" htmlFor="name">Name</label>
         <input id="name" name="name" placeholder="Your name" className="rounded-md border border-black/10 dark:border-white/10 bg-transparent px-3 py-2" required />
         <label className="sr-only" htmlFor="email">Email</label>
@@ -198,14 +189,14 @@ function Contact() {
         <label className="sr-only" htmlFor="message">Message</label>
         <textarea id="message" name="message" placeholder="Your message" rows={5} className="rounded-md border border-black/10 dark:border-white/10 bg-transparent px-3 py-2" required />
         <div className="flex items-center gap-3">
-          <button disabled={status === 'sending'} className="rounded-md bg-brand px-4 py-2 text-white text-sm font-semibold hover:bg-brand-dark disabled:opacity-60">
+          <button disabled={status === 'sending'} className="btn-primary">
             {status === 'sending' ? 'Sending…' : 'Send'}
           </button>
           {status === 'sent' && <span className="text-xs text-green-600" role="status">Sent!</span>}
           {status === 'error' && <span className="text-xs text-red-600" role="alert">Failed. Try mailto.</span>}
         </div>
       </form>
-      <p className="mt-3 text-xs text-gray-600 dark:text-gray-400">
+      <p className="mt-3 text-xs subtle">
         To enable direct send, add env variables: VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID
       </p>
     </Section>
@@ -252,8 +243,20 @@ export default function App() {
         </Section>
         <Contact />
       </main>
-      <footer className="mt-16 border-t border-black/10 dark:border-white/10 py-6 text-center text-xs text-gray-600 dark:text-gray-300">
-        © 2025 Ananya Goyal. All rights reserved.
+      <footer className="border-t border-black/10 dark:border-white/10">
+        <div className="section py-6 text-center text-xs subtle">
+          <div className="mb-2 flex items-center justify-center gap-3">
+            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer" className="btn-outline gap-2">
+              <img src="/linkedin.png" alt="LinkedIn" className="h-4 w-4 rounded-full" />
+              LinkedIn
+            </a>
+            <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer" className="btn-outline gap-2">
+              <img src="/stackoverflow.png" alt="StackOverflow" className="h-4 w-4 rounded-full" />
+              StackOverflow
+            </a>
+          </div>
+          © 2025 Ananya Goyal. All rights reserved.
+        </div>
       </footer>
     </div>
   )
