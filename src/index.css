@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base theme tokens */
+:root {
+  --bg: 255 255 255;
+  --fg: 17 24 39;
+}
+.dark {
+  --bg: 17 24 39;
+  --fg: 243 244 246;
+}
+
+html, body, #root {
+  height: 100%;
+}
+body {
+  @apply bg-[rgb(var(--bg))] text-[rgb(var(--fg))] antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
