@@ -8,20 +8,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'Metis Lab Management System',
+    description: 'Automated lab access and management with secure role-based auth, real-time logs, and resource tracking.',
+    tags: ['Python', 'Flask', 'SQLite', 'HTML', 'CSS', 'JavaScript'],
+  },
+  {
     title: 'Portfolio Website',
-    description: 'Responsive portfolio with React, Tailwind, and animations.',
-    tags: ['React', 'Tailwind', 'Framer Motion'],
-    link: '#',
-  },
-  {
-    title: 'Cybersecurity Notes',
-    description: 'Curated notes and demos exploring basic cyber hacks safely.',
-    tags: ['Security', 'Notes', 'Web'],
-  },
-  {
-    title: 'Mini UI Components',
-    description: 'Small library of accessible components built with Headless patterns.',
-    tags: ['UI', 'Accessibility', 'TypeScript'],
-    source: '#',
+    description: 'Responsive personal site with a resume layout and accessible UI.',
+    tags: ['React', 'CSS', 'Vite'],
   },
 ]
