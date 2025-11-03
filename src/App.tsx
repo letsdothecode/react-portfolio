@@ -80,10 +80,10 @@ function Hero() {
               <img src="/linkedin.png" alt="LinkedIn" />
               LinkedIn
             </a>
-            <a href="https://github.com/letsdothecode" target="_blank" rel="noreferrer" className="btn btn-outline no-icon">
+            <a href="https://github.com/letsdothecode" target="_blank" rel="noreferrer" className="btn btn-outline">
+              <img src="/github.png" alt="GitHub" />
               GitHub
             </a>
-            <a href="#projects" className="btn btn-primary">View Projects</a>
           </div>
         </div>
         <div className="avatar">
@@ -295,8 +295,6 @@ export default function App() {
       <footer>
         <div className="section" style={{ textAlign: 'center', fontSize: '0.8rem' }}>
           <div className="footer-actions">
-            <a href="https://linkedin.com/in/ananya-goyal-6ba92a302" target="_blank" rel="noreferrer" className="btn btn-outline">LinkedIn</a>
-            <a href="https://github.com/letsdothecode" target="_blank" rel="noreferrer" className="btn btn-outline">GitHub</a>
           </div>
           © 2025 Ananya Goyal. All rights reserved.
         </div>
